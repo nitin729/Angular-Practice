@@ -1,0 +1,19 @@
+<div>
+  <form (ngSubmit)="handleTodos()">
+    <input
+      type="text"
+      placeholder="Add Todo..."
+      name="add"
+      [(ngModel)]="todoInput"
+    />
+    <button>Add Todos</button>
+  </form>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let todo of allTodos | async">
+      {{ todo.content }}
+      <button (click)="handleDelete(todo.id)">Delete</button>
+    </li>
+  </ul>
+</div>
